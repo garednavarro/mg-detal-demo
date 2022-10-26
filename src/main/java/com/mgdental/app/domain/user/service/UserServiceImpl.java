@@ -65,6 +65,7 @@ public class UserServiceImpl implements UserService {
                 .userName(registration.getName())
                 .email(registration.getEmail())
                 .idSpeciality(registration.getIdSpeciality())
+                .phoneNumber(registration.getPhone())
                 .activo(registration.getActivo())
                 .password(passwordEncoder.encode(registration.getPassword()))
                 .build();

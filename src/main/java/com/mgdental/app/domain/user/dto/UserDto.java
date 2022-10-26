@@ -50,7 +50,6 @@ public class UserDto {
     @AllArgsConstructor
     @Builder
     @JsonTypeName("user")
-    @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.WRAPPER_OBJECT)
     public static class Login {
         @NotNull
         @Email
