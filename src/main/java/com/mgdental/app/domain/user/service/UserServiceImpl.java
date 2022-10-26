@@ -36,6 +36,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public ResponseEntity<UserDto> login(UserDto.Login login) {
+        return ResponseEntity.ok(UserMapper.mapUserToDto(
+                userRepository.findByEmail(login.getEmail())
+                .filter(user -> passwordEncoder.matches(login.getPassword(), user.getPassword()))
+                .orElseThrow(() -> new AppException(Error.LOGING_INFO_INVALID))
+        ));
+    }
+
+    @Override
     public ResponseEntity<UserDto> findBYName(String username) {
         Optional<User> user = userRepository.findByUserName(username);
         if(user.isEmpty())

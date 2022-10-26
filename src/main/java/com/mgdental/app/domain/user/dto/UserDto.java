@@ -4,7 +4,11 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.mgdental.app.domain.user.entity.Role;
 import lombok.*;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Set;
 
 @Getter
@@ -40,5 +44,19 @@ public class UserDto {
         private Integer idSpeciality;
         private Long phone;
         private Boolean activo;
+    }
+
+    @Getter
+    @AllArgsConstructor
+    @Builder
+    @JsonTypeName("user")
+    @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.WRAPPER_OBJECT)
+    public static class Login {
+        @NotNull
+        @Email
+        private String email;
+
+        @NotBlank
+        private String password;
     }
 }
