@@ -12,7 +12,7 @@ public class UserMapper {
                 .userName(userDto.getName())
                 .email(userDto.getEmail())
                 .password(userDto.getPassword())
-                .idSpeciality(userDto.getIdSpeciality())
+                .speciality(userDto.getIdSpeciality())
                 .phoneNumber(userDto.getPhone())
                 .activo(userDto.getActivo())
                 .build();
@@ -22,7 +22,7 @@ public class UserMapper {
         return UserDto.builder()
                 .username(user.getUserName())
                 .email(user.getEmail())
-                .idSpeciality(user.getIdSpeciality())
+                .speciality(user.getSpeciality())
                 .phoneNumber(user.getPhoneNumber())
                 .activo(user.getActivo())
                 .roles(user.getRoles())

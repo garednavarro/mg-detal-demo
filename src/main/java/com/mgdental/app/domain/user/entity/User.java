@@ -1,6 +1,5 @@
 package com.mgdental.app.domain.user.entity;
 
-import com.mgdental.app.domain.common.entity.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,18 +18,26 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     @Column(name = "username", nullable = false, unique = true)
     private String userName;
+
     @Column(nullable = false)
     private String password;
-    @Column(name = "id_speciality")
-    private Integer idSpeciality;
-    @Column
+
+    @Column(nullable = false, unique = true)
     private String email;
+
     @Column(name = "phone_number")
     private Long phoneNumber;
+
     @Column
     private Boolean activo;
+
+    @ManyToOne(cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "id_speciality")
+    private Speciality speciality;
+
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "users_roles",
             joinColumns = @JoinColumn(name = "user_id"),

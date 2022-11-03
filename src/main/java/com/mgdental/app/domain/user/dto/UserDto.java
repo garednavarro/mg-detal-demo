@@ -3,6 +3,7 @@ package com.mgdental.app.domain.user.dto;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.mgdental.app.domain.user.entity.Role;
+import com.mgdental.app.domain.user.entity.Speciality;
 import lombok.*;
 
 import javax.validation.constraints.Email;
@@ -23,7 +24,7 @@ public class UserDto {
     @NotNull
     private String email;
     @NotNull
-    private Integer idSpeciality;
+    private Speciality speciality;
     @NotNull
     private Long phoneNumber;
     @NonNull
@@ -41,7 +42,7 @@ public class UserDto {
         private String name;
         private String email;
         private String password;
-        private Integer idSpeciality;
+        private Speciality Speciality;
         private Long phone;
         private Boolean activo;
     }
