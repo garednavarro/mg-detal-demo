@@ -23,8 +23,8 @@ public class Address {
     private Long postalCode;
     @ManyToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(name = "id_municipal")
-    private Municipality idMunicipal;
+    private Municipality municipality;
     @ManyToOne(cascade = CascadeType.REFRESH)
     @JoinColumn(name = "id_state")
-    private State idState;
+    private State state;
 }
