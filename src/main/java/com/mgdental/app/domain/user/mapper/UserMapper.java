@@ -12,7 +12,8 @@ public class UserMapper {
                 .userName(userDto.getName())
                 .email(userDto.getEmail())
                 .password(userDto.getPassword())
-                .speciality(userDto.getIdSpeciality())
+                .speciality(userDto.getSpeciality())
+                .roles(userDto.getRoles())
                 .phoneNumber(userDto.getPhone())
                 .activo(userDto.getActivo())
                 .build();
