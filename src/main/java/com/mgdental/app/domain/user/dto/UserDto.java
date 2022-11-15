@@ -17,7 +17,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Builder
 @JsonTypeName("user")
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.WRAPPER_OBJECT)
+//@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.WRAPPER_OBJECT)
 public class UserDto {
     @NotNull
     private String username;
@@ -42,7 +42,8 @@ public class UserDto {
         private String name;
         private String email;
         private String password;
-        private Speciality Speciality;
+        private Speciality speciality;
+        private Set<Role> roles;
         private Long phone;
         private Boolean activo;
     }
