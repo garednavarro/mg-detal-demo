@@ -61,15 +61,7 @@ public class UserServiceImpl implements UserService {
     }
 
     private UserDto insertUser(UserDto.Insert registration){
-        User user = User.builder()
-                .userName(registration.getName())
-                .email(registration.getEmail())
-                .speciality(registration.getSpeciality())
-                .phoneNumber(registration.getPhone())
-                .activo(registration.getActivo())
-                .password(passwordEncoder.encode(registration.getPassword()))
-                .build();
-        return UserMapper.mapUserToDto(userRepository.save(user));
+        return UserMapper.mapUserToDto(userRepository.save(UserMapper.mapUserToEntity(registration)));
     }
 
     @Override
