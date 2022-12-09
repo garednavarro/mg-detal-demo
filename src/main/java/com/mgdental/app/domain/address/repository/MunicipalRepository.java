@@ -9,6 +9,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface MunicipalRepository extends JpaRepository<Municipality, Integer> {
-    @Query("SELECT u FROM Municipality u WHERE u.idState=:stateId")
+    @Query("SELECT u FROM Municipality u WHERE u.state.id=:stateId")
     Optional<List<Municipality>> findMunicipalitiesByStateId(@Param("stateId") Integer stateId);
 }
