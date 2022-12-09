@@ -35,9 +35,9 @@ public class SecurityConfig {
         return http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> {
-                    auth.antMatchers(HttpMethod.POST, "/api/add-user").permitAll();
-                    auth.antMatchers(HttpMethod.GET, "/api/getUser/{username}").permitAll();
-                    auth.antMatchers(HttpMethod.GET,"/api/hello").hasAnyRole("ADMIN", "USER", "MANAGER")
+                    auth.antMatchers(HttpMethod.POST, "/users/**").permitAll();
+                    auth.antMatchers(HttpMethod.GET,"/api/hello", "/api/getUser/{username}").hasAnyRole("ADMIN", "USER", "MANAGER")
+                            .antMatchers(HttpMethod.GET, "/address/municipalities").hasAnyRole("ADMIN", "MANAGER")
                             .antMatchers(HttpMethod.GET,"/api/admin").hasRole("ADMIN")
                             .antMatchers(HttpMethod.GET, "/api/manager").hasRole("MANAGER")
                             .antMatchers(HttpMethod.GET, "/api/user").hasRole("USER")

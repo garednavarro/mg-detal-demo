@@ -9,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 public interface UserService {
     ResponseEntity<UserDto> saveUser(final UserDto.Insert registration);
 
+    ResponseEntity<UserDto> login(final UserDto.Login login);
+
     ResponseEntity<UserDto> findBYName(String username);
 
     ResponseEntity<UserDto> findBYId(Integer id);

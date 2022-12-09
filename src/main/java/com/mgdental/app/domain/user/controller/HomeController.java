@@ -18,11 +18,6 @@ public class HomeController {
 
     private UserServiceImpl userService;
 
-    @PostMapping("/add-user")
-    public ResponseEntity<UserDto> registerUser(@RequestBody UserDto.Insert registration){
-        return userService.saveUser(registration);
-    }
-
     @PostMapping("/insertRole")
     public ResponseEntity<Role> insertRole(@RequestBody Role role) {
         log.info("INSIDE insertRole CONTROLLER!!! --> " + role.toString());
