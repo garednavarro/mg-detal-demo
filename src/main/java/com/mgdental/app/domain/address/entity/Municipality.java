@@ -20,6 +20,6 @@ public class Municipality {
     @Column(name = "municipal_name")
     private String municipalName;
     @ManyToOne(cascade = CascadeType.REFRESH)
-    @JoinColumn(name = "id_state")
-    private State idState;
+    @JoinColumn(name = "id_state", referencedColumnName = "id")
+    private State state;
 }
